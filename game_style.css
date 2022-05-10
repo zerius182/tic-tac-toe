@@ -1,0 +1,28 @@
+*{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lobster', cursive;;
+}
+
+#page-header-container{
+    background-color: rgba(35, 35, 250, 0.868);
+    height: 22vh;
+    display: flex;
+    justify-content: center;
+}
+
+#header-hero{
+    display: flex;
+    align-items: center;
+}
+
+#ttt-header-pic{
+    height: 70%;
+}
+
+#header-title{
+    font-size: 6rem;
+    margin-left: 2rem;
+    color: white;
+}
