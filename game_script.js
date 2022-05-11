@@ -31,3 +31,22 @@ const playerFactory = (marker, playerName) =>{
         getPlayerName
     }
 }
+
+const playerOne = playerFactory("x", "Player One");
+const playerTwo = playerFactory("0", "Player Two");
+//To go into module!
+
+const playerOneName = document.querySelector("#player-one-name");
+playerOneName.textContent = playerOne.getPlayerName();
+const playerTwoName = document.querySelector("#player-two-name");
+playerTwoName.textContent = playerTwo.getPlayerName();
+
+const playerOneScore = document.querySelector("#player-one-score");
+playerOneScore.textContent = playerOne.getWinCount();
+const playerTwoScore = document.querySelector("#player-two-score");
+playerTwoScore.textContent = playerTwo.getWinCount();
+//End Module!
+
+const gameBoard = () =>{
+    let gameArray = ["","","","","","","","",""];
+}
