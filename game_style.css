@@ -40,7 +40,7 @@
     display:grid;
     width: 400px;
     height: 400px;
-    background-color: rgba(184, 184, 184, 0.11);
+    background-color: rgba(184, 184, 184, 0.208);
     grid-template: repeat(3, 1fr)/ repeat(3, 1fr);
     padding: 15px;
 }
