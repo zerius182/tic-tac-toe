@@ -39,6 +39,7 @@ const playerFactory = (marker, playerName) =>{
 
     const showActiveStatus = () =>{
         console.log(`${_playerName}s active status is ${active}`)
+        return active;
     }
 
     return{
@@ -54,11 +55,8 @@ const playerFactory = (marker, playerName) =>{
 
 const playerOne = playerFactory("X", "Player One");
 const playerTwo = playerFactory("0", "Player Two");
+let _active = playerOne;
 playerOne.setActive();
-//To go into module!
-
-
-//End Module!
 
 const gameModule =( () =>{
     let gameArray = ["","","","","","","","",""];
@@ -85,6 +83,7 @@ const gameModule =( () =>{
         arrayBottomRight
     }
 })()
+const gameController = gameModule;
 
 const displaymodule =( () =>{
     const playerOneName = document.querySelector("#player-one-name");
@@ -112,14 +111,48 @@ const displaymodule =( () =>{
     }
 
     const placeMarker = (e) =>{
-        e.target.textContent = playerOne.getMarker();
+        if(playerOne.showActiveStatus() === true){
+            e.target.textContent = playerOne.getMarker();
+            playerOne.setWaiting();
+            _active = playerTwo;      
+        }
+        else{
+            e.target.textContent = playerTwo.getMarker();
+            playerOne.setActive();
+            _active = playerOne;
+        }
     }
 
     topLeft.addEventListener("click",placeMarker)
+    topLeft.addEventListener("click", gameController.arrayTopLeft)
+
+    topMiddle.addEventListener("click",placeMarker)
+    topMiddle.addEventListener("click", gameController.arrayTopMiddle)   
+
+    topRight.addEventListener("click",placeMarker)
+    topRight.addEventListener("click", gameController.arrayTopRight)   
+
+    left.addEventListener("click",placeMarker)
+    left.addEventListener("click", gameController.arrayLeft)   
+
+    right.addEventListener("click",placeMarker)
+    right.addEventListener("click", gameController.arrayRight)   
+
+    middle.addEventListener("click",placeMarker)
+    middle.addEventListener("click", gameController.arrayMiddle)   
+
+    bottomLeft.addEventListener("click",placeMarker)
+    bottomLeft.addEventListener("click", gameController.arrayBottomLeft)   
+
+    bottomMiddle.addEventListener("click",placeMarker)
+    bottomMiddle.addEventListener("click", gameController.arrayBottomMiddle)   
+
+    bottomRight.addEventListener("click",placeMarker)
+    bottomRight.addEventListener("click", gameController.arrayBottomRight)   
 
     return{
         setUpBoard,
-        placeMarker,
+        
     }
 })();
 
