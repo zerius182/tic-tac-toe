@@ -58,8 +58,10 @@ const playerTwo = playerFactory("0", "Player Two");
 let _active = playerOne;
 playerOne.setActive();
 
+
 const gameModule =( () =>{
-    let gameArray = ["","","","","","","","",""];
+
+    const gameArray = ["","","","","","","","",""];
 
     const arrayTopLeft = () => gameArray[0] = _active.getMarker();
     const arrayTopMiddle = () => gameArray[1] = _active.getMarker();
@@ -71,6 +73,10 @@ const gameModule =( () =>{
     const arrayBottomMiddle = () => gameArray[7] = _active.getMarker();
     const arrayBottomRight = () => gameArray[8] = _active.getMarker();
 
+    const logArray = () =>{
+        console.log(gameArray);
+    }
+
     return{
         arrayTopLeft,
         arrayTopMiddle,
@@ -80,7 +86,8 @@ const gameModule =( () =>{
         arrayRight,
         arrayBottomLeft,
         arrayBottomMiddle,
-        arrayBottomRight
+        arrayBottomRight,
+        logArray
     }
 })()
 const gameController = gameModule;
@@ -114,74 +121,76 @@ const displaymodule =( () =>{
         if(playerOne.showActiveStatus() === true){
             e.target.textContent = playerOne.getMarker();
             playerOne.setWaiting();
-            _active = playerTwo;      
+            _active = playerTwo;
+            gameController.logArray();     
         }
         else{
             e.target.textContent = playerTwo.getMarker();
             playerOne.setActive();
             _active = playerOne;
+            gameController.logArray();
         }
     }
     const topLeftPlace = (e) =>{
         if (topLeft.textContent ===""){
+            gameController.arrayTopLeft();
             placeMarker(e);
-            gameController.arrayTopLeft;
         }
     }
 
     const topMiddlePlace = (e) =>{
         if (topMiddle.textContent ===""){
+            gameController.arrayTopMiddle();
             placeMarker(e);
-            gameController.arrayTopMiddle;
         }
     }
 
     const topRightPlace = (e) =>{
         if (topRight.textContent ===""){
+            gameController.arrayTopRight();
             placeMarker(e);
-            gameController.arrayTopRight;
         }
     }
 
     const leftPlace = (e) =>{
         if (left.textContent ===""){
+            gameController.arrayLeft();
             placeMarker(e);
-            gameController.arrayLeft;
         }
     }
 
     const middlePlace = (e) =>{
         if (middle.textContent ===""){
+            gameController.arrayMiddle();
             placeMarker(e);
-            gameController.arrayMiddle;
         }
     }
 
     const rightPlace = (e) =>{
         if (right.textContent ===""){
+            gameController.arrayRight();
             placeMarker(e);
-            gameController.arrayRight;
         }
     }
 
     const bottomLeftPlace = (e) =>{
         if (bottomLeft.textContent ===""){
+            gameController.arrayBottomLeft();
             placeMarker(e);
-            gameController.array.bottomLeft;
         }
     }
 
     const bottomMiddlePlace = (e) =>{
         if (bottomMiddle.textContent ===""){
+            gameController.arrayBottomMiddle();
             placeMarker(e);
-            gameController.arrayBottomMiddle;
         }
     }
 
     const bottomRightPlace = (e) =>{
         if (bottomRight.textContent ===""){
+            gameController.arrayBottomRight();
             placeMarker(e);
-            gameController.arrayBottomRight;
         }
     }
 
