@@ -122,33 +122,78 @@ const displaymodule =( () =>{
             _active = playerOne;
         }
     }
+    const topLeftPlace = (e) =>{
+        if (topLeft.textContent ===""){
+            placeMarker(e);
+            gameController.arrayTopLeft;
+        }
+    }
 
-    topLeft.addEventListener("click",placeMarker)
-    topLeft.addEventListener("click", gameController.arrayTopLeft)
+    const topMiddlePlace = (e) =>{
+        if (topMiddle.textContent ===""){
+            placeMarker(e);
+            gameController.arrayTopMiddle;
+        }
+    }
 
-    topMiddle.addEventListener("click",placeMarker)
-    topMiddle.addEventListener("click", gameController.arrayTopMiddle)   
+    const topRightPlace = (e) =>{
+        if (topRight.textContent ===""){
+            placeMarker(e);
+            gameController.arrayTopRight;
+        }
+    }
 
-    topRight.addEventListener("click",placeMarker)
-    topRight.addEventListener("click", gameController.arrayTopRight)   
+    const leftPlace = (e) =>{
+        if (left.textContent ===""){
+            placeMarker(e);
+            gameController.arrayLeft;
+        }
+    }
 
-    left.addEventListener("click",placeMarker)
-    left.addEventListener("click", gameController.arrayLeft)   
+    const middlePlace = (e) =>{
+        if (middle.textContent ===""){
+            placeMarker(e);
+            gameController.arrayMiddle;
+        }
+    }
 
-    right.addEventListener("click",placeMarker)
-    right.addEventListener("click", gameController.arrayRight)   
+    const rightPlace = (e) =>{
+        if (right.textContent ===""){
+            placeMarker(e);
+            gameController.arrayRight;
+        }
+    }
 
-    middle.addEventListener("click",placeMarker)
-    middle.addEventListener("click", gameController.arrayMiddle)   
+    const bottomLeftPlace = (e) =>{
+        if (bottomLeft.textContent ===""){
+            placeMarker(e);
+            gameController.array.bottomLeft;
+        }
+    }
 
-    bottomLeft.addEventListener("click",placeMarker)
-    bottomLeft.addEventListener("click", gameController.arrayBottomLeft)   
+    const bottomMiddlePlace = (e) =>{
+        if (bottomMiddle.textContent ===""){
+            placeMarker(e);
+            gameController.arrayBottomMiddle;
+        }
+    }
 
-    bottomMiddle.addEventListener("click",placeMarker)
-    bottomMiddle.addEventListener("click", gameController.arrayBottomMiddle)   
+    const bottomRightPlace = (e) =>{
+        if (bottomRight.textContent ===""){
+            placeMarker(e);
+            gameController.arrayBottomRight;
+        }
+    }
 
-    bottomRight.addEventListener("click",placeMarker)
-    bottomRight.addEventListener("click", gameController.arrayBottomRight)   
+    topLeft.addEventListener("click", topLeftPlace);
+    topMiddle.addEventListener("click", topMiddlePlace);
+    topRight.addEventListener("click", topRightPlace);
+    left.addEventListener("click", leftPlace);
+    middle.addEventListener("click", middlePlace);
+    right.addEventListener("click", rightPlace);
+    bottomLeft.addEventListener("click", bottomLeftPlace);
+    bottomMiddle.addEventListener("click", bottomMiddlePlace);
+    bottomRight.addEventListener("click", bottomRightPlace);
 
     return{
         setUpBoard,
