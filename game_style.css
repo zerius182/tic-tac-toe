@@ -3,6 +3,7 @@
     margin: 0px;
     padding: 0px;
     --fancy-font: 'Lobster', cursive;
+    user-select: none;
 }
 
 #page-header-container{
