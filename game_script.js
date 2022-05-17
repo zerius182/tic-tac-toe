@@ -77,6 +77,34 @@ const gameModule =( () =>{
         console.log(gameArray);
     }
 
+    const winCheck = () =>{
+        if(_active.getMarker() === gameArray[0] && _active.getMarker() === gameArray[1] && _active.getMarker() === gameArray[2]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[3] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[5]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[6] && _active.getMarker() === gameArray[7] && _active.getMarker() === gameArray[8]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[0] && _active.getMarker() === gameArray[3] && _active.getMarker() === gameArray[6]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[1] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[7]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[2] && _active.getMarker() === gameArray[5] && _active.getMarker() === gameArray[8]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[0] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[8]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+        else if(_active.getMarker() === gameArray[2] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[6]){
+            alert(`${_active.getPlayerName()} wins this round!`)
+        }
+
+    }
+
     return{
         arrayTopLeft,
         arrayTopMiddle,
@@ -87,7 +115,8 @@ const gameModule =( () =>{
         arrayBottomLeft,
         arrayBottomMiddle,
         arrayBottomRight,
-        logArray
+        logArray,
+        winCheck
     }
 })()
 const gameController = gameModule;
@@ -121,11 +150,14 @@ const displaymodule =( () =>{
         if(playerOne.showActiveStatus() === true){
             e.target.textContent = playerOne.getMarker();
             playerOne.setWaiting();
+            gameController.winCheck();    
             _active = playerTwo;
-            gameController.logArray();     
+            gameController.logArray();
+
         }
         else{
             e.target.textContent = playerTwo.getMarker();
+            gameController.winCheck();
             playerOne.setActive();
             _active = playerOne;
             gameController.logArray();
