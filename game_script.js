@@ -79,30 +79,34 @@ const gameModule =( () =>{
 
     const winCheck = () =>{
         if(_active.getMarker() === gameArray[0] && _active.getMarker() === gameArray[1] && _active.getMarker() === gameArray[2]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[3] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[5]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[6] && _active.getMarker() === gameArray[7] && _active.getMarker() === gameArray[8]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[0] && _active.getMarker() === gameArray[3] && _active.getMarker() === gameArray[6]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[1] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[7]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[2] && _active.getMarker() === gameArray[5] && _active.getMarker() === gameArray[8]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[0] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[8]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
         else if(_active.getMarker() === gameArray[2] && _active.getMarker() === gameArray[4] && _active.getMarker() === gameArray[6]){
-            alert(`${_active.getPlayerName()} wins this round!`)
+            weHaveAWinner()
         }
+    }
 
+    const weHaveAWinner = () =>{
+        console.log(`${_active.getPlayerName()} wins this round!`);
+        _active.victory();
     }
 
     return{
@@ -121,7 +125,7 @@ const gameModule =( () =>{
 })()
 const gameController = gameModule;
 
-const displaymodule =( () =>{
+const displayModule =( () =>{
     const playerOneName = document.querySelector("#player-one-name");
     const playerTwoName = document.querySelector("#player-two-name");
 
@@ -149,8 +153,8 @@ const displaymodule =( () =>{
     const placeMarker = (e) =>{
         if(playerOne.showActiveStatus() === true){
             e.target.textContent = playerOne.getMarker();
+            gameController.winCheck();
             playerOne.setWaiting();
-            gameController.winCheck();    
             _active = playerTwo;
             gameController.logArray();
 
@@ -242,5 +246,5 @@ const displaymodule =( () =>{
     }
 })();
 
-const displayController = displaymodule;
+const displayController = displayModule;
 displayController.setUpBoard();
