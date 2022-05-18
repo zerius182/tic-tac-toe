@@ -61,7 +61,7 @@ playerOne.setActive();
 
 const gameModule =( () =>{
 
-    const gameArray = ["","","","","","","","",""];
+    let gameArray = ["","","","","","","","",""];
 
     const arrayTopLeft = () => gameArray[0] = _active.getMarker();
     const arrayTopMiddle = () => gameArray[1] = _active.getMarker();
@@ -105,8 +105,10 @@ const gameModule =( () =>{
     }
 
     const weHaveAWinner = () =>{
-        console.log(`${_active.getPlayerName()} wins this round!`);
+        alert(`${_active.getPlayerName()} wins this round!`);
         _active.victory();
+        gameArray = ["","","","","","","","",""];
+        displayController.resetBoard();
     }
 
     return{
@@ -240,8 +242,26 @@ const displayModule =( () =>{
     bottomMiddle.addEventListener("click", bottomMiddlePlace);
     bottomRight.addEventListener("click", bottomRightPlace);
 
+    const resetBoard = () =>{
+        setUpBoard();
+        playerOneScore.textContent = playerOne.getWinCount();
+        playerTwoScore.textContent = playerTwo.getWinCount();
+        topLeft.textContent = "";
+        topMiddle.textContent = "";
+        topRight.textContent = "";
+        left.textContent = "";
+        middle.textContent = "";
+        right.textContent = "";
+        bottomLeft.textContent = "";
+        bottomMiddle.textContent = "";
+        bottomRight.textContent = "";
+
+
+    }
+
     return{
         setUpBoard,
+        resetBoard,
         
     }
 })();
