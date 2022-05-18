@@ -1,5 +1,4 @@
 const playerFactory = (marker, playerName) =>{
-    //Need to remove console logs once I've finished
     let currentScore = 0;
     let playerMarker = marker;
     let _playerName = playerName;
@@ -105,9 +104,9 @@ const gameModule =( () =>{
     }
 
     const weHaveAWinner = () =>{
-        alert(`${_active.getPlayerName()} wins this round!`);
         _active.victory();
         gameArray = ["","","","","","","","",""];
+        alert(`${_active.getPlayerName()} wins this round!`);
         displayController.resetBoard();
     }
 
@@ -241,6 +240,8 @@ const displayModule =( () =>{
     bottomLeft.addEventListener("click", bottomLeftPlace);
     bottomMiddle.addEventListener("click", bottomMiddlePlace);
     bottomRight.addEventListener("click", bottomRightPlace);
+
+
 
     const resetBoard = () =>{
         setUpBoard();
